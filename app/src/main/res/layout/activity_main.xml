@@ -143,6 +143,22 @@
                     android:text="@string/manage_enlarge_hint"
                     android:textColor="@color/text_secondary"
                     android:textSize="15sp" />
+
+                <!-- Auto-start switch: reached with Up from the search box, OK changes it. -->
+                <TextView
+                    android:id="@+id/autostart_toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/search_background"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingStart="12dp"
+                    android:paddingTop="6dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="6dp"
+                    android:textColor="@color/text_primary"
+                    android:textSize="17sp" />
             </LinearLayout>
         </LinearLayout>
 

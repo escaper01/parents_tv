@@ -21,6 +21,8 @@ import android.widget.ListView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.media3.ui.PlayerView
+import android.widget.Toast
+import com.osama.parentstv.autostart.AutoStart
 import com.osama.parentstv.data.Channel
 import com.osama.parentstv.data.ChannelRepository
 import com.osama.parentstv.player.PlayerController
@@ -52,6 +54,7 @@ class MainActivity : Activity(), PlayerController.Listener, ChannelRepository.Li
     private lateinit var manageQr: ImageView
     private lateinit var manageUrl: TextView
     private lateinit var managePin: TextView
+    private lateinit var autostartToggle: TextView
     private var qrFor: String? = null
     private lateinit var infoPanel: LinearLayout
     private lateinit var infoUrl: TextView
@@ -105,6 +108,14 @@ class MainActivity : Activity(), PlayerController.Listener, ChannelRepository.Li
         manageQr = findViewById(R.id.manage_qr)
         manageUrl = findViewById(R.id.manage_url)
         managePin = findViewById(R.id.manage_pin)
+        autostartToggle = findViewById(R.id.autostart_toggle)
+        autostartToggle.setOnClickListener { onAutoStartPressed() }
+        // Reading the header or typing takes longer than picking a channel: give it more time.
+        val longerWhileFocused = View.OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus && panel.visibility == View.VISIBLE) keepListOpen(SEARCH_TIMEOUT_MS)
+        }
+        autostartToggle.onFocusChangeListener = longerWhileFocused
+        search.onFocusChangeListener = longerWhileFocused
         infoPanel = findViewById(R.id.info_panel)
         infoUrl = findViewById(R.id.info_url)
         infoPin = findViewById(R.id.info_pin)
@@ -150,6 +161,7 @@ class MainActivity : Activity(), PlayerController.Listener, ChannelRepository.Li
         channels = app.channels.playable()
         favoriteIds = app.settings.favorites.toSet()
         applyFilter()
+        updateAutoStartToggle() // e.g. back from the TV's Accessibility screen
 
         val start = channels.firstOrNull { it.id == app.settings.lastChannelId } ?: channels.firstOrNull()
         if (start != null) tune(start, remember = false) else showStatus(getString(R.string.status_no_channels))
@@ -233,7 +245,7 @@ class MainActivity : Activity(), PlayerController.Listener, ChannelRepository.Li
                 KeyEvent.KEYCODE_BACK, KeyEvent.KEYCODE_DPAD_LEFT -> { closeList(); return true }
                 KeyEvent.KEYCODE_CHANNEL_UP, KeyEvent.KEYCODE_CHANNEL_DOWN -> closeList()
                 else -> {
-                    keepListOpen(LIST_TIMEOUT_MS)
+                    keepListOpen(if (autostartToggle.hasFocus()) SEARCH_TIMEOUT_MS else LIST_TIMEOUT_MS)
                     return super.dispatchKeyEvent(event)
                 }
             }
@@ -347,6 +359,7 @@ class MainActivity : Activity(), PlayerController.Listener, ChannelRepository.Li
         val url = ip?.let { "http://$it:${ParentsTvApp.PORT}" }
         manageUrl.text = url ?: getString(R.string.manage_offline)
         managePin.text = getString(R.string.info_pin, app.settings.pin)
+        updateAutoStartToggle()
         if (url != qrFor) {
             qrFor = url
             manageQr.setImageBitmap(url?.let { QrCode.bitmap(it, QR_SIZE_PX) })
@@ -370,6 +383,38 @@ class MainActivity : Activity(), PlayerController.Listener, ChannelRepository.Li
         ui.removeCallbacks(hideVolume)
         ui.postDelayed(hideVolume, VOLUME_TIMEOUT_MS)
         refreshMute.run()
+    }
+
+    private fun updateAutoStartToggle() {
+        autostartToggle.text = getString(
+            when (AutoStart.state(this)) {
+                AutoStart.State.ACTIVE -> R.string.autostart_on
+                AutoStart.State.OFF -> R.string.autostart_off
+                AutoStart.State.NEEDS_SETUP -> R.string.autostart_needs_setup
+            }
+        )
+    }
+
+    /**
+     * OK on the switch: ON turns it off; OFF turns it on. When the TV still needs the one-time
+     * setup, opens its Accessibility screen so the service can be switched on with the remote.
+     */
+    private fun onAutoStartPressed() {
+        val state = when (AutoStart.state(this)) {
+            AutoStart.State.ACTIVE -> AutoStart.setEnabled(this, false)
+            AutoStart.State.OFF -> AutoStart.setEnabled(this, true)
+            AutoStart.State.NEEDS_SETUP -> AutoStart.State.NEEDS_SETUP
+        }
+        updateAutoStartToggle()
+        keepListOpen(LIST_TIMEOUT_MS)
+        if (state == AutoStart.State.NEEDS_SETUP) {
+            val hint = when (AutoStart.openAccessibilitySettings(this)) {
+                AutoStart.Opened.ACCESSIBILITY -> R.string.autostart_setup_hint
+                AutoStart.Opened.SETTINGS -> R.string.autostart_setup_hint_main
+                AutoStart.Opened.NONE -> R.string.autostart_no_settings
+            }
+            Toast.makeText(this, hint, Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun showBigQr() {

@@ -2,6 +2,7 @@ package com.osama.parentstv.web
 
 import android.util.Log
 import com.osama.parentstv.ParentsTvApp
+import com.osama.parentstv.autostart.AutoStart
 import com.osama.parentstv.data.ChannelJson
 import org.json.JSONArray
 import org.json.JSONObject
@@ -218,6 +219,19 @@ class AdminServer(private val app: ParentsTvApp, private val port: Int) {
                 remote.play(segments[1])
                 Response.json(JSONObject().put("ok", true))
             }
+
+            // Auto-start at power-on: the switch, and whether this TV has had its one-time setup.
+            req.method == "GET" && req.path == "/api/autostart" -> Response.json(AutoStart.toJson(app))
+
+            req.method == "POST" && req.path == "/api/autostart" -> {
+                AutoStart.setEnabled(app, JSONObject(req.body).getBoolean("enabled"))
+                Response.json(AutoStart.toJson(app))
+            }
+
+            // Opens the TV's Accessibility screen so the service can be switched on with the remote.
+            req.method == "POST" && req.path == "/api/autostart/open-settings" ->
+                // "ACCESSIBILITY", "SETTINGS" (main settings: go to Accessibility from there) or "NONE"
+                Response.json(JSONObject().put("opened", AutoStart.openAccessibilitySettings(app).name))
 
             req.method == "GET" && req.path == "/api/status" -> {
                 val remote = app.remote ?: return Response.error(400, "the player is not on screen")

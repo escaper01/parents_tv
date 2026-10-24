@@ -57,6 +57,7 @@ app/src/main/java/com/osama/parentstv/
   web/QrCode.kt                QR bitmap (ZXing)
   web/NetworkInfo.kt           the TV's LAN address
   autostart/AutoStartService.kt  accessibility service: opens the player at boot and on wake
+  autostart/AutoStart.kt       the on/off switch + "is the service enabled on this TV" + setup helpers
   autostart/BootReceiver.kt    fallback for devices that deliver BOOT_COMPLETED
 app/src/main/assets/
   default_channels.json        built-in channel list (generated, see below)
@@ -76,6 +77,11 @@ Design notes:
   `BOOT_COMPLETED` to third-party apps. At boot it opens the player at once; if the stock launcher
   then draws on top within 60 s, it brings the player back **once**, so a later Home press is
   respected.
+- **The auto-start switch** (`Settings.autoStart`) is checked in `AutoStartService.openPlayer`,
+  the single place that opens the player automatically. `AutoStart.state()` combines it with
+  whether the service is enabled: `ACTIVE`, `OFF` or `NEEDS_SETUP`. An app cannot enable its own
+  accessibility service unless `WRITE_SECURE_SETTINGS` was granted over ADB (`pm grant`); then the
+  switch enables it directly, otherwise it opens the TV's Accessibility screen.
 
 ## Channel tools
 
@@ -117,6 +123,9 @@ link). Bodies and responses are JSON.
 | `POST /api/play/{id}` | Switch the TV to a channel (the player must be on screen) |
 | `GET /api/status` | What is playing: URL, video/audio format, frames rendered, bitrate |
 | `POST /api/test` | `{url}`: quick reachability check of a stream link |
+| `GET /api/autostart` | `{enabled, serviceEnabled, canEnableItself, state: ACTIVE/OFF/NEEDS_SETUP, adbCommands}` |
+| `POST /api/autostart` | `{enabled: true/false}`: the auto-start switch; returns the same as GET |
+| `POST /api/autostart/open-settings` | Opens the TV's Accessibility screen; `{opened}` is `ACCESSIBILITY`, `SETTINGS` (main settings, as a fallback) or `NONE` |
 | `POST /api/favorites/{id}` | Add a favorite |
 | `DELETE /api/favorites/{id}` | Remove a favorite |
 

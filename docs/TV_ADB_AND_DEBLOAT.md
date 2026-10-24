@@ -150,7 +150,11 @@ The full list is in [DEVELOPMENT.md](DEVELOPMENT.md#web-api). To check every cha
 ```
 adb shell settings get secure enabled_accessibility_services
 adb shell settings get secure accessibility_enabled
+curl -H "X-Pin: 5048" http://127.0.0.1:18081/api/autostart     # switch + setup state
+adb shell pm grant com.osama.parentstv android.permission.WRITE_SECURE_SETTINGS   # lets the switch enable the service itself
 ```
+
+How the one-time setup and the on/off switch work: [NEW_TV_SETUP.md, step 5](NEW_TV_SETUP.md#5-turn-on-auto-start-one-time-setup).
 
 ## Removing bloatware
 

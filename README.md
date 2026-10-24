@@ -16,7 +16,9 @@ Built for an Android 9 MediaTek/Cvte smart TV in Morocco, but it runs on any And
 - **Remote only.** CH+/CH- or ▲/▼ change channel, digits jump to a number, ◀/▶ change the volume,
   OK opens the channel list, Back never leaves the app.
 - **Search** in the channel list (▲ to the search box, OK to type) by name or category.
-- **Opens by itself** at power-on and after standby, on the last channel watched.
+- **Opens by itself** at power-on and after standby, on the last channel watched. A switch on
+  the TV and on the web page turns this on or off; a new TV needs a
+  [one-time setup](docs/NEW_TV_SETUP.md#5-turn-on-auto-start-one-time-setup) (30 s with the remote).
 - **132 free channels** out of the box, grouped: Morocco first, then Arabic News, Documentary,
   Movies, Series, Entertainment, International News, Sports, Music, Kids, Culture, Religious.
   Nothing 18+.
@@ -24,8 +26,9 @@ Built for an Android 9 MediaTek/Cvte smart TV in Morocco, but it runs on any And
   shown at the top of the channel list:
   - **Channels** tab: browse by category, search, tap to switch the TV, **★ favorites** (one tap
     adds whatever is playing right now).
-  - **Manage** tab: add / edit / delete / reorder channels, test links, import JSON or M3U files
-    (duplicates are merged, never doubled), export a backup, reset to defaults.
+  - **Manage** tab: the auto-start switch, add / edit / delete / reorder channels, test links,
+    import JSON or M3U files (duplicates are merged, never doubled), export a backup, reset to
+    defaults.
 
 ## Remote control
 
@@ -38,6 +41,7 @@ Built for an Android 9 MediaTek/Cvte smart TV in Morocco, but it runs on any And
 | Mute | Mute (the TV shows its own icon) |
 | OK | Channel list with search and the management QR code |
 | 0 (while the list is open) | Show the QR code large, in the middle of the screen |
+| ▲ from the search box, then OK | Turn "Open at power-on" on or off |
 | Info / Menu | Management address and PIN |
 | Back | Close whatever is open; never leaves the app |
 
@@ -51,6 +55,9 @@ adb install -r apk/ParentsTV.apk
 adb shell settings put secure enabled_accessibility_services com.osama.parentstv/com.osama.parentstv.autostart.AutoStartService
 adb shell settings put secure accessibility_enabled 1
 ```
+
+The last two lines are the one-time auto-start setup; it can also be done with the remote, see
+the guide.
 
 Full step-by-step guide for any TV brand: **[docs/NEW_TV_SETUP.md](docs/NEW_TV_SETUP.md)**.
 

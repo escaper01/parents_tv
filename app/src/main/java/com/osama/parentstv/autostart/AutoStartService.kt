@@ -11,6 +11,7 @@ import android.os.SystemClock
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import com.osama.parentstv.MainActivity
+import com.osama.parentstv.ParentsTvApp
 
 /**
  * Brings the player to the front when the TV boots and when it wakes from standby.
@@ -83,7 +84,12 @@ class AutoStartService : AccessibilityService() {
         private const val WAKE_DELAY_MS = 500L
         private const val RELAUNCH_DELAY_MS = 300L
 
+        /** Opens the player automatically, unless the user switched auto-start off. */
         fun openPlayer(context: Context) {
+            if (!(context.applicationContext as ParentsTvApp).settings.autoStart) {
+                Log.i(TAG, "Auto-start is switched off, staying on the home screen")
+                return
+            }
             context.startActivity(
                 Intent(context, MainActivity::class.java)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)

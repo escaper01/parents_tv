@@ -17,4 +17,10 @@
     <string name="volume_value">🔊 %1$d</string>
     <string name="search_hint">🔍 Search: press ▲ then OK to type</string>
     <string name="search_no_results">No channel matches</string>
+    <string name="autostart_on">⚙ Open at power-on: ON  (OK to turn off)</string>
+    <string name="autostart_off">⚙ Open at power-on: OFF  (OK to turn on)</string>
+    <string name="autostart_needs_setup">⚙ Open at power-on: needs one-time setup  (OK to set up)</string>
+    <string name="autostart_setup_hint">Turn on \"Parents TV auto-start\", then press Back</string>
+    <string name="autostart_setup_hint_main">Go to Accessibility, turn on \"Parents TV auto-start\", then press Back</string>
+    <string name="autostart_no_settings">This TV hides Accessibility settings. Use the ADB commands in docs/NEW_TV_SETUP.md once.</string>
 </resources>

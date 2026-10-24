@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Not granted on install. If granted once over ADB (adb shell pm grant com.osama.parentstv
+         android.permission.WRITE_SECURE_SETTINGS), the Auto-start switch can enable the
+         accessibility service by itself, with no trip to the TV's settings. -->
+    <uses-permission
+        android:name="android.permission.WRITE_SECURE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
 
     <!-- Lets the auto-start service find the home-screen apps (Android 11+ package visibility). -->
     <queries>
@@ -12,6 +19,11 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.HOME" />
         </intent>
+        <!-- The TV's Accessibility screen, opened for the one-time auto-start setup. -->
+        <intent>
+            <action android:name="android.settings.ACCESSIBILITY_SETTINGS" />
+        </intent>
+        <package android:name="com.android.tv.settings" />
     </queries>
 
     <uses-feature android:name="android.software.leanback" android:required="false" />

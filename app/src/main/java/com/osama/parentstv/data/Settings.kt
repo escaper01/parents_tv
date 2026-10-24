@@ -28,6 +28,14 @@ class Settings(context: Context) {
         } ?: emptyList()
         set(value) = prefs.edit().putString(KEY_FAVORITES, JSONArray(value.distinct()).toString()).apply()
 
+    /**
+     * Whether the player should open by itself at power-on and after standby. Only takes effect
+     * once the auto-start accessibility service is enabled on the TV (see [AutoStart]).
+     */
+    var autoStart: Boolean
+        get() = prefs.getBoolean(KEY_AUTOSTART, true)
+        set(value) = prefs.edit().putBoolean(KEY_AUTOSTART, value).apply()
+
     @Synchronized fun addFavorite(id: String) { if (id !in favorites) favorites = favorites + id }
 
     @Synchronized fun removeFavorite(id: String) { favorites = favorites - id }
@@ -36,6 +44,7 @@ class Settings(context: Context) {
         const val KEY_LAST = "last_channel"
         const val KEY_PREV = "previous_channel"
         const val KEY_FAVORITES = "favorites"
+        const val KEY_AUTOSTART = "auto_start"
         // Older builds stored a random PIN under "pin"; this key starts fresh at the fixed default.
         const val KEY_PIN = "pin_v2"
         const val DEFAULT_PIN = "5048"

@@ -69,11 +69,44 @@ adb -s 192.168.1.13:5555 install -r apk\ParentsTV.apk
 
 Open it once to check: `adb -s 192.168.1.13:5555 shell am start -n com.osama.parentstv/.MainActivity`
 
-## 5. Turn on auto-start
+## 5. Turn on auto-start (one-time setup)
 
-The app opens itself at power-on through an accessibility service. Android starts enabled
-accessibility services at every boot, which works even on firmware that ignores the normal
-"boot completed" signal (the original TV did).
+### How auto-start works
+
+The usual way for an app to start at boot is the Android "boot completed" signal, but some
+firmware (the original TV's included) never delivers it to installed apps. Parents TV instead
+includes a small **accessibility service**, "Parents TV auto-start". Android starts every enabled
+accessibility service at every boot, and the firmware cannot skip that. When it starts, the
+service opens the player (and brings it back once if the stock home screen draws on top), and it
+reopens the player when the TV wakes from standby. It does not read the screen or anything else.
+
+Android does **not** let an app switch on its own accessibility service, so every TV needs this
+**one-time step**. It survives reboots, power cuts and app updates; it is only lost if the app is
+uninstalled or the TV is factory reset.
+
+After that, auto-start is a normal **switch**, changeable at any time:
+
+- **On the TV:** press OK to open the channel list, then ▲ from the search box to the
+  *"Open at power-on"* line, and OK to change it.
+- **On the web page:** Manage tab → **TV settings** → *Open Parents TV when the TV turns on*.
+  The card shows *Active*, *Off*, or *Not set up on this TV yet*.
+
+Turning it **off** keeps the service enabled but quiet: the TV boots to its normal home screen.
+
+### Option A: with the remote (no PC needed)
+
+1. Turn the switch on, on the TV or on the web page. If the TV is not set up yet, the TV opens
+   its **Accessibility** screen by itself (or press *Open that screen on the TV now* on the web
+   page).
+2. Open **Services** (also called *Downloaded apps* or *Installed services*) →
+   **Parents TV auto-start** → **On**.
+3. Confirm the warning (*"Allow ... full control of your device?"* → **Allow / OK**), then press
+   Back. The switch now shows *ON* / *Active*.
+
+The Accessibility screen is under Settings → *Device Preferences*, *System* or *General*
+depending on the brand.
+
+### Option B: from the PC with ADB (for TVs that hide Accessibility)
 
 ```
 adb -s 192.168.1.13:5555 shell settings put secure enabled_accessibility_services com.osama.parentstv/com.osama.parentstv.autostart.AutoStartService
@@ -87,8 +120,16 @@ ours with a `:` separator instead of replacing it:
 adb shell settings get secure enabled_accessibility_services
 ```
 
-Some TVs show a warning the first time a service is enabled; accept it on the TV.
-Alternatively enable it by hand: Settings → Accessibility → *Parents TV auto-start* → On.
+### Option C: let the app's switch do it
+
+Grant one extra permission once over ADB; from then on, turning the switch on enables the service
+by itself, with no trip to the TV's settings:
+
+```
+adb -s 192.168.1.13:5555 shell pm grant com.osama.parentstv android.permission.WRITE_SECURE_SETTINGS
+```
+
+The web page's TV settings card shows these exact commands whenever setup is still needed.
 
 ## 6. Test
 

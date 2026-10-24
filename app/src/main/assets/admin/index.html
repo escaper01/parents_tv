@@ -64,6 +64,9 @@
   .actions { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; }
   .actions button { padding: 5px 9px; }
   .test-ok { color: var(--ok); } .test-bad { color: var(--danger); }
+  .switch-row { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--text); margin: 0; cursor: pointer; }
+  .switch-row input { width: 22px; height: 22px; flex: none; margin-top: 2px; accent-color: var(--accent); }
+  .status-ok { color: var(--ok); font-weight: 600; } .status-warn { color: #b26a00; font-weight: 600; }
   .toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: #222; color: #fff; padding: 10px 16px; border-radius: 8px; display: none; max-width: calc(100% - 32px); z-index: 10; }
   #login { max-width: 360px; margin: 12vh auto; }
   @media (max-width: 560px) {
@@ -111,6 +114,25 @@
 
   <!-- Manage: add, edit, delete, reorder, import / export -->
   <main id="manage" role="tabpanel" hidden>
+    <div class="card" id="settingsCard">
+      <h2 style="margin:0 0 8px;font-size:17px">TV settings</h2>
+      <label class="switch-row">
+        <input type="checkbox" id="autoStart" onchange="setAutoStart(this.checked)">
+        <span><b>Open Parents TV when the TV turns on</b><br>
+        <span class="muted">Also after standby, on the last channel watched. Off: the TV starts on its normal home screen.</span></span>
+      </label>
+      <p id="autoStartStatus" class="muted" style="margin:10px 0 0"></p>
+      <div id="autoStartSetup" hidden style="margin-top:10px">
+        <p style="margin:0 0 6px"><b>One-time setup on this TV.</b> Android does not let an app switch this on by itself. Either:</p>
+        <ol style="margin:0 0 8px;padding-left:20px">
+          <li>With the remote: TV <b>Settings → Accessibility → Parents TV auto-start → On</b>, and confirm.
+            <br><button style="margin-top:6px" onclick="openTvSettings()">Open that screen on the TV now</button></li>
+          <li style="margin-top:8px">Or from a PC with ADB (for TVs that hide Accessibility):
+            <pre id="adbCommands" style="white-space:pre-wrap;font-size:12px;background:var(--bg);padding:8px;border-radius:6px;margin:6px 0 0"></pre></li>
+        </ol>
+      </div>
+    </div>
+
     <div class="row" style="margin-bottom:12px">
       <button class="primary" onclick="openEditor()">+ Add channel</button>
     </div>
@@ -215,6 +237,38 @@ async function load() {
   $('login').hidden = true; $('app').hidden = false;
   $('exportLink').href = '/api/export?pin=' + encodeURIComponent(pin);
   render();
+  loadAutoStart().catch(() => {});
+}
+
+// ---- Auto-start --------------------------------------------------------------------------
+
+async function loadAutoStart() { renderAutoStart(await api('autostart')); }
+
+function renderAutoStart(s) {
+  $('autoStart').checked = s.enabled;
+  const status = $('autoStartStatus');
+  if (s.state === 'ACTIVE') status.innerHTML = '<span class="status-ok">✓ Active</span>: the TV opens Parents TV at power-on.';
+  else if (s.state === 'OFF') status.innerHTML = 'Off: the TV starts on its normal home screen.';
+  else status.innerHTML = '<span class="status-warn">⚠ Not set up on this TV yet</span>: follow the one-time setup below.';
+  $('autoStartSetup').hidden = s.state !== 'NEEDS_SETUP';
+  $('adbCommands').textContent = s.adbCommands.join('\n');
+}
+
+async function setAutoStart(on) {
+  try {
+    const s = await post('autostart', { enabled: on });
+    renderAutoStart(s);
+    toast(s.state === 'ACTIVE' ? 'Auto-start is on' : s.state === 'OFF' ? 'Auto-start is off' : 'Saved. One-time setup needed on the TV');
+  } catch (e) { toast(e.message); loadAutoStart().catch(() => {}); }
+}
+
+async function openTvSettings() {
+  try {
+    const r = await post('autostart/open-settings', {});
+    toast(r.opened === 'ACCESSIBILITY' ? 'Opened on the TV: switch on "Parents TV auto-start"'
+      : r.opened === 'SETTINGS' ? 'TV Settings opened: go to Accessibility → "Parents TV auto-start" → On'
+      : 'This TV hides that screen: use the ADB commands', 6000);
+  } catch (e) { toast(e.message); }
 }
 
 function render() {
