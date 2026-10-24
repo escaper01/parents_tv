@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ParentsTv" parent="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <color name="overlay_bg">#CC101418</color>
+    <color name="overlay_selected">#FF2F6FEB</color>
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#FFB8C0CC</color>
+    <color name="accent">#FF2F6FEB</color>
+</resources>

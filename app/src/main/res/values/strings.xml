@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Parents TV</string>
+    <string name="autostart_label">Parents TV auto-start</string>
+    <string name="autostart_description">Opens Parents TV when the TV turns on.</string>
+    <string name="status_loading">Loading…</string>
+    <string name="status_reconnecting">Reconnecting…</string>
+    <string name="status_no_channels">No channels. Add some from the web page.</string>
+    <string name="info_manage">Manage channels: %1$s</string>
+    <string name="info_pin">PIN: %1$s</string>
+    <string name="info_no_network">Not connected to the network</string>
+    <string name="manage_title">Manage channels (scan with your phone)</string>
+    <string name="manage_qr_description">QR code of the channel management page</string>
+    <string name="manage_offline">No network</string>
+    <string name="manage_enlarge_hint">Press 0 to show the QR code bigger</string>
+    <string name="muted">🔇 Muted</string>
+    <string name="volume_value">🔊 %1$d</string>
+    <string name="search_hint">🔍 Search: press ▲ then OK to type</string>
+    <string name="search_no_results">No channel matches</string>
+</resources>

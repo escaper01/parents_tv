@@ -1,0 +1,1095 @@
+{
+  "version": 1,
+  "channels": [
+    {
+      "id": "2m.ma@sd",
+      "number": 1,
+      "name": "2M",
+      "group": "Morocco",
+      "logo": "https:\/\/i.imgur.com\/PJYTfHi.png",
+      "urls": [
+        "http:\/\/185.9.2.18\/chid_218\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "almaghribia.ma@sd",
+      "number": 2,
+      "name": "Al Maghribia",
+      "group": "Morocco",
+      "logo": "https:\/\/i.imgur.com\/7GaahYh.png",
+      "urls": [
+        "http:\/\/185.9.2.18\/chid_205\/tracks-v1a1\/mono.m3u8",
+        "http:\/\/185.9.2.18\/chid_205\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "arryadia.ma@sd",
+      "number": 3,
+      "name": "Arryadia",
+      "group": "Morocco",
+      "logo": "https:\/\/i.imgur.com\/XjzK3gZ.png",
+      "urls": [
+        "http:\/\/149.100.11.252:8000\/play\/a065\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "chadatv.ma@sd",
+      "number": 4,
+      "name": "Chada TV",
+      "group": "Morocco",
+      "logo": "https:\/\/freebox.cdn.scw.iliad.fr\/medium_Logo_chada_tv_2ee1412d38.png",
+      "urls": [
+        "https:\/\/edge13.vedge.infomaniak.com\/livecast\/ik:chadatv\/manifest.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "medi1tvmaghreb.ma@sd",
+      "number": 5,
+      "name": "Medi1TV Maghreb",
+      "group": "Morocco",
+      "logo": "https:\/\/i.imgur.com\/F5OFQsp.jpeg",
+      "urls": [
+        "https:\/\/cdn.live.easybroadcast.io\/abr_corp\/83_medi1tv-maghreb_jnbspmg\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "medi1tvarabic.ma@sd",
+      "number": 6,
+      "name": "Medi1TV Arabic",
+      "group": "Morocco",
+      "logo": "https:\/\/i.imgur.com\/3YsZPY6.jpeg",
+      "urls": [
+        "https:\/\/cdn.live.easybroadcast.io\/abr_corp\/83_medi1tv-arabic_g90v4ec\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "medi1tvafrique.ma@sd",
+      "number": 7,
+      "name": "Medi1TV Afrique",
+      "group": "Morocco",
+      "logo": "https:\/\/i.imgur.com\/a20DHnj.png",
+      "urls": [
+        "https:\/\/cdn.live.easybroadcast.io\/abr_corp\/83_medi1tv-afrique_tm7tu45\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "rtarabic.ru@sd",
+      "number": 8,
+      "name": "RT Arabic",
+      "group": "News",
+      "logo": "https:\/\/i.imgur.com\/G8vGrn1.png",
+      "urls": [
+        "https:\/\/rt-arb.rttv.com\/dvr\/rtarab\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "france24.fr@arabic",
+      "number": 9,
+      "name": "France 24 Arabic",
+      "group": "News",
+      "logo": "https:\/\/xstreamcp-assets-msp.streamready.in\/assets\/LIVETV\/LIVECHANNEL\/LIVETV_LIVETVCHANNEL_FRANCE_24\/images\/LOGO_HD\/image.png",
+      "urls": [
+        "https:\/\/live.france24.com\/hls\/live\/2037222-b\/F24_AR_HI_HLS\/master_5000.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "france24.fr@french",
+      "number": 10,
+      "name": "France 24",
+      "group": "News",
+      "logo": "https:\/\/i.imgur.com\/u8N6uoj.png",
+      "urls": [
+        "https:\/\/live.france24.com\/hls\/live\/2037179-b\/F24_FR_HI_HLS\/master_5000.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "france24.fr@english",
+      "number": 11,
+      "name": "France 24 English",
+      "group": "News",
+      "logo": "https:\/\/xstreamcp-assets-msp.streamready.in\/assets\/LIVETV\/LIVECHANNEL\/LIVETV_LIVETVCHANNEL_FRANCE_24\/images\/LOGO_HD\/image.png",
+      "urls": [
+        "https:\/\/live.france24.com\/hls\/live\/2037218-b\/F24_EN_HI_HLS\/master_5000.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "bbcnews.uk@europe",
+      "number": 12,
+      "name": "BBC News",
+      "group": "News",
+      "logo": "https:\/\/xstreamcp-assets-msp.streamready.in\/assets\/LIVETV\/LIVECHANNEL\/LIVETV_LIVETVCHANNEL_BBC_NEWS\/images\/LOGO_HD\/image.png",
+      "urls": [
+        "http:\/\/23.237.104.106:8080\/USA_BBC_NEWS\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "foxnewschannel.us@sd",
+      "number": 13,
+      "name": "Fox News",
+      "group": "News",
+      "logo": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/6\/67\/Fox_News_Channel_logo.svg\/960px-Fox_News_Channel_logo.svg.png",
+      "urls": [
+        "https:\/\/tvsen6.aynaott.com\/foxnews\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "mbc1.ae@sd",
+      "number": 14,
+      "name": "MBC 1",
+      "group": "MBC",
+      "logo": "https:\/\/i.imgur.com\/CiA3plN.png",
+      "urls": [
+        "https:\/\/shd-gcp-live.edgenextcdn.net\/live\/bitmovin-mbc-1\/15cf99af5de54063fdabfefe66adc075\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "mbc4.ae@sd",
+      "number": 15,
+      "name": "MBC 4",
+      "group": "MBC",
+      "logo": "https:\/\/i.imgur.com\/BcXASJp.png",
+      "urls": [
+        "https:\/\/shd-gcp-live.edgenextcdn.net\/live\/bitmovin-mbc-4\/24f134f1cd63db9346439e96b86ca6ed\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "mbc5.ae@sd",
+      "number": 16,
+      "name": "MBC 5",
+      "group": "MBC",
+      "logo": "https:\/\/i.imgur.com\/fRWaDyF.png",
+      "urls": [
+        "https:\/\/shd-gcp-live.edgenextcdn.net\/live\/bitmovin-mbc-5\/ee6b000cee0629411b666ab26cb13e9b\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "mbcdrama.ae@sd",
+      "number": 17,
+      "name": "MBC Drama",
+      "group": "MBC",
+      "logo": "https:\/\/i.imgur.com\/g5PWnqp.png",
+      "urls": [
+        "https:\/\/shd-gcp-live.edgenextcdn.net\/live\/bitmovin-mbc-drama\/2c28a458e2f3253e678b07ac7d13fe71\/index.m3u8",
+        "https:\/\/shd-gcp-live.edgenextcdn.net\/live\/bitmovin-mbc-plus-drama\/e37251ec2aac8f6c98f75cd0fa37cd28\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "mbcmasr.eg@sd",
+      "number": 18,
+      "name": "MBC Masr",
+      "group": "MBC",
+      "logo": "https:\/\/i.imgur.com\/o2elx0u.png",
+      "urls": [
+        "https:\/\/shd-gcp-live.edgenextcdn.net\/live\/bitmovin-mbc-masr\/956eac069c78a35d47245db6cdbb1575\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "mbcmasr2.eg@sd",
+      "number": 19,
+      "name": "MBC Masr 2",
+      "group": "MBC",
+      "logo": "https:\/\/i.imgur.com\/KHo7Gtn.png",
+      "urls": [
+        "https:\/\/shd-gcp-live.edgenextcdn.net\/live\/bitmovin-mbc-masr-2\/754931856515075b0aabf0e583495c68\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "mbcmasrdrama.sa@sd",
+      "number": 20,
+      "name": "MBC Masr Drama",
+      "group": "MBC",
+      "logo": "https:\/\/media0070.elcinema.com\/tvguide\/1399_1.png",
+      "urls": [
+        "https:\/\/shd-gcp-live.edgenextcdn.net\/live\/bitmovin-mbc-masr-drama\/567b703c19ede6598222de81b0e4508b\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "mbciraq.iq@sd",
+      "number": 21,
+      "name": "MBC Iraq",
+      "group": "MBC",
+      "logo": "https:\/\/i.imgur.com\/D0LxiPE.png",
+      "urls": [
+        "https:\/\/shd-gcp-live.edgenextcdn.net\/live\/bitmovin-mbc-iraq\/e38c44b1b43474e1c39cb5b90203691e\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "aljazeera.qa@arabic",
+      "number": 22,
+      "name": "Al Jazeera",
+      "group": "Arabic News",
+      "logo": "https:\/\/i.imgur.com\/7bRVpnu.png",
+      "urls": [
+        "https:\/\/live-hls-apps-aja-fa.getaj.net\/AJA\/01.m3u8",
+        "http:\/\/stream.mcquack.net\/131\/index.m3u8",
+        "https:\/\/live-hls-apps-aje-fa.getaj.net\/AJE\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "aljazeeramubasher.qa@sd",
+      "number": 23,
+      "name": "Al Jazeera Mubasher",
+      "group": "Arabic News",
+      "logo": "https:\/\/i.imgur.com\/X80DQvF.png",
+      "urls": [
+        "https:\/\/live-hls-apps-ajm-fa.getaj.net\/AJM\/index.m3u8",
+        "https:\/\/live-hls-web-ajm.getaj.net\/AJM\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "alarabiya.ae@sd",
+      "number": 24,
+      "name": "Al Arabiya",
+      "group": "Arabic News",
+      "logo": "https:\/\/shahid.mbc.net\/mediaObject\/a4c125db-ede8-4970-9eed-963948c78651?height=auto&width=512&croppingPoint=&version=1&type=png",
+      "urls": [
+        "https:\/\/live.alarabiya.net\/alarabiapublish\/alarabiya.smil\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "alhadath.sa@sd",
+      "number": 25,
+      "name": "Al Hadath",
+      "group": "Arabic News",
+      "logo": "https:\/\/i.imgur.com\/De4SEWE.png",
+      "urls": [
+        "https:\/\/shd-gcp-live.edgenextcdn.net\/live\/bitmovin-hadath\/2ff87ec4c2f3ede35295a20637d9f8fd\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "skynewsarabia.ae@hd",
+      "number": 26,
+      "name": "Sky News Arabia",
+      "group": "Arabic News",
+      "logo": "https:\/\/i.imgur.com\/SvjU4h6.png",
+      "urls": [
+        "https:\/\/live-stream.skynewsarabia.com\/c-horizontal-channel\/horizontal-stream\/index.m3u8",
+        "https:\/\/stream.skynewsarabia.com\/hls\/sna.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "asharqnews.sa@sd",
+      "number": 27,
+      "name": "Asharq News",
+      "group": "Arabic News",
+      "logo": "https:\/\/i.imgur.com\/bqRC3sl.png",
+      "urls": [
+        "https:\/\/live-news.asharq.com\/asharq.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "alarabytv.qa@sd",
+      "number": 28,
+      "name": "Al Araby TV",
+      "group": "Arabic News",
+      "logo": "https:\/\/i.imgur.com\/YMqWEe4.png",
+      "urls": [
+        "https:\/\/live.kwikmotion.com\/alaraby1live\/alaraby_abr\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "alghadtv.eg@sd",
+      "number": 29,
+      "name": "Al Ghad TV",
+      "group": "Arabic News",
+      "logo": "https:\/\/i.imgur.com\/ga6NXb9.png",
+      "urls": [
+        "https:\/\/eazyvwqssi.erbvr.com\/alghadtv\/alghadtv.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "trtarabi.tr@sd",
+      "number": 30,
+      "name": "TRT Arabi",
+      "group": "Arabic News",
+      "logo": "https:\/\/i.imgur.com\/dEfI2M9.png",
+      "urls": [
+        "https:\/\/tv-trtarabi.medya.trt.com.tr\/master.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "dw.de@arabic",
+      "number": 31,
+      "name": "DW Arabic",
+      "group": "Arabic News",
+      "logo": "https:\/\/i.imgur.com\/8MRNFb9.png",
+      "urls": [
+        "https:\/\/dwamdstream103.akamaized.net\/hls\/live\/2015526\/dwstream103\/master.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "aljazeera.qa@english",
+      "number": 32,
+      "name": "Al Jazeera English",
+      "group": "Arabic News",
+      "logo": "https:\/\/i.imgur.com\/7bRVpnu.png",
+      "urls": [
+        "https:\/\/live-hls-apps-aje-fa.getaj.net\/AJE\/index.m3u8",
+        "http:\/\/stream.mcquack.net\/131\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "dubaitvinternational.ae@sd",
+      "number": 33,
+      "name": "Dubai TV",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/UMmbyHv.png",
+      "urls": [
+        "http:\/\/185.9.2.18\/chid_139\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "sharjahtv.ae@sd",
+      "number": 34,
+      "name": "Sharjah TV",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/Oz2bPOt.png",
+      "urls": [
+        "https:\/\/live.kwikmotion.com\/smc1live\/smc1tv.smil\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "almasriyah.eg@sd",
+      "number": 35,
+      "name": "Al Masriya",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.ibb.co\/Kx7wmXCQ\/almasriya.png",
+      "urls": [
+        "http:\/\/185.9.2.18\/chid_247\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "onviedrama.vn@sd",
+      "number": 36,
+      "name": "ON Drama",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.ibb.co\/VptvgFVx\/IMG-2530.webp",
+      "urls": [
+        "http:\/\/dvrfl05.bozztv.com\/vch_vchannel18\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "niledrama.eg@sd",
+      "number": 37,
+      "name": "Nile Drama",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/FasJFMM.png",
+      "urls": [
+        "http:\/\/185.9.2.18\/chid_352\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "lbc.sa@sd",
+      "number": 38,
+      "name": "LBC International",
+      "group": "Entertainment",
+      "logo": "https:\/\/s3.eu-central-1.amazonaws.com\/rotana.website\/channels\/1688402500.webp",
+      "urls": [
+        "http:\/\/185.9.2.18\/chid_327\/index.m3u8",
+        "http:\/\/185.9.2.18\/chid_521\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "mtvlebanon.lb@sd",
+      "number": 39,
+      "name": "MTV Lebanon",
+      "group": "Entertainment",
+      "logo": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/7\/75\/Murr_tv.png",
+      "urls": [
+        "https:\/\/shd-gcp-live.edgenextcdn.net\/live\/bitmovin-mtv-lebanon\/b8ebb2a5affb812f1541712adde10e26\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "aljadeed.lb@sd",
+      "number": 40,
+      "name": "Al Jadeed",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/CfxR8o3.png",
+      "urls": [
+        "http:\/\/185.9.2.18\/chid_391\/mono.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "alsaudiya.sa@sd",
+      "number": 41,
+      "name": "Al Saudiya",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/GRQTndk.png",
+      "urls": [
+        "https:\/\/shd-gcp-live.edgenextcdn.net\/live\/bitmovin-saudi-tv\/2ad66056b51fd8c1b624854623112e43\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "sbc.sa@sd",
+      "number": 42,
+      "name": "SBC",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/9JSQglj.png",
+      "urls": [
+        "https:\/\/shd-gcp-live.edgenextcdn.net\/live\/bitmovin-sbc\/90e09c0c28db26435799b4a14892a167\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "qatartelevision.qa@sd",
+      "number": 43,
+      "name": "Qatar TV",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/N5RB4sp.png",
+      "urls": [
+        "https:\/\/live.kwikmotion.com\/qtv1live\/qtv1.smil\/playlist.m3u8",
+        "https:\/\/qatartv.akamaized.net\/hls\/live\/20000609\/qtv1\/master.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "omantv.om@sd",
+      "number": 44,
+      "name": "Oman TV",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/rBftT9x.png",
+      "urls": [
+        "https:\/\/partneta.cdn.mgmlcdn.com\/omantv\/smil:omantv.stream.smil\/chunklist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "ktv1.kw@sd",
+      "number": 45,
+      "name": "KTV 1",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/kG0d8Ay.png",
+      "urls": [
+        "https:\/\/kwtktv1ta.cdn.mangomolo.com\/ktv1\/smil:ktv1.stream.smil\/chunklist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "royatv.jo@sd",
+      "number": 46,
+      "name": "Roya TV",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/WX80rty.png",
+      "urls": [
+        "https:\/\/live.kwikmotion.com\/royatvpublic\/royatv.smil\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "jordantv.jo@sd",
+      "number": 47,
+      "name": "Jordan TV",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/0XozB5N.png",
+      "urls": [
+        "https:\/\/jrtv-live.ercdn.net\/jordanhd\/jordanhd.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "bahraintv.bh@sd",
+      "number": 48,
+      "name": "Bahrain TV",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/LTD0jIm.png",
+      "urls": [
+        "https:\/\/5c7b683162943.streamlock.net\/live\/ngrp:bahraintvmain_all\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "alsharqiya.iq@sd",
+      "number": 49,
+      "name": "Al Sharqiya",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/mJIG5IV.png",
+      "urls": [
+        "http:\/\/185.9.2.18\/chid_144\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "syriatv.sy@sd",
+      "number": 50,
+      "name": "Syria TV",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/FjuVuXF.jpeg",
+      "urls": [
+        "https:\/\/live.kwikmotion.com\/syriatvlive\/syriatv.smil\/playlist_dvr.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "libyaalwataniya.ly@sd",
+      "number": 51,
+      "name": "Libya Al Wataniya",
+      "group": "Entertainment",
+      "logo": "https:\/\/i.imgur.com\/KSUny9D.jpeg",
+      "urls": [
+        "https:\/\/cdn-globecast.akamaized.net\/live\/eds\/libya_al_watanya\/hls_roku\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "asharqdocumentary.sa@sd",
+      "number": 52,
+      "name": "Asharq Documentary",
+      "group": "Documentary",
+      "logo": "https:\/\/i.imgur.com\/v6VsFEt.png",
+      "urls": [
+        "https:\/\/svs.itworkscdn.net\/asharqdocumentarylive\/asharqdocumentary.smil\/playlist_dvr.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "asharqdiscovery.sa@sd",
+      "number": 53,
+      "name": "Asharq Discovery",
+      "group": "Documentary",
+      "logo": "https:\/\/i.imgur.com\/Czxi7yk.png",
+      "urls": [
+        "https:\/\/svs.itworkscdn.net\/asharqdiscoverylive\/asharqd.smil\/playlist_dvr.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "onkids.vn@sd",
+      "number": 54,
+      "name": "ON Kids",
+      "group": "Kids",
+      "logo": "https:\/\/i.ibb.co\/RGsg8XfM\/IMG-2512.webp",
+      "urls": [
+        "https:\/\/freem3u.xyz\/api\/live\/play.m3u8?vid=179"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "alquranalkareemtv.sa@sd",
+      "number": 55,
+      "name": "Al Quran Al Kareem",
+      "group": "Religious",
+      "logo": "https:\/\/aloula.faulio.com\/storage\/mediagallery\/da\/6c\/fullhd_7eaf7e165c4cad5b3a45eff65d2011e18be5d670.png",
+      "urls": [
+        "http:\/\/m.live.net.sa:1935\/live\/quran\/gmswf.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "iqraaarabic.sa@sd",
+      "number": 56,
+      "name": "Iqraa",
+      "group": "Religious",
+      "logo": "https:\/\/i.imgur.com\/HPVsIa4.png",
+      "urls": [
+        "https:\/\/playlist.fasttvcdn.com\/pl\/dlkqw1ftuvuuzkcb4pxdcg\/Iqraafasttv3\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "aflam.sa@sd",
+      "number": 57,
+      "name": "Aflam",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/cTLj7Yt.png",
+      "urls": [
+        "https:\/\/shd-amg-fast.edgenextcdn.net\/tx001\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "ifilmarabic.ir@sd",
+      "number": 58,
+      "name": "iFilm Arabic",
+      "group": "Movies",
+      "logo": "https:\/\/upload.wikimedia.org\/wikipedia\/commons\/b\/b9\/IFILM.png",
+      "urls": [
+        "https:\/\/live.presstv.co.uk\/hls\/ifilmar.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "mixhollywood.eg@sd",
+      "number": 59,
+      "name": "Mix Hollywood",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/1ENdbZn.png",
+      "urls": [
+        "https:\/\/ml-pull-hwc.myco.io\/MixTV\/hls\/index.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "cinebyplutotv.de@fr",
+      "number": 60,
+      "name": "Pluto TV Cine",
+      "group": "Movies",
+      "logo": "https:\/\/images.pluto.tv\/channels\/5f8ed0f17564a300082b676a\/colorLogoPNG_1775048900088.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-5f8ed0f17564a300082b676a.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "cineactionbyplutotv.de@fr",
+      "number": 61,
+      "name": "Cine Action",
+      "group": "Movies",
+      "logo": "https:\/\/images.pluto.tv\/channels\/5f8ed1ff5c39700007e2204a\/colorLogoPNG_1752228138963.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-5f8ed1ff5c39700007e2204a.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "cinethrillersbyplutotv.de@fr",
+      "number": 62,
+      "name": "Cine Thrillers",
+      "group": "Movies",
+      "logo": "https:\/\/images.pluto.tv\/channels\/60c3472a51a2050008dad272\/colorLogoPNG_1751272093012.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-60c3472a51a2050008dad272.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "cineromancebyplutotv.de@fr",
+      "number": 63,
+      "name": "Cine Romance",
+      "group": "Movies",
+      "logo": "https:\/\/images.pluto.tv\/channels\/60812fc8539963000707d1e1\/colorLogoPNG_1775048649580.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-60812fc8539963000707d1e1.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "cineretrobyplutotv.de@fr",
+      "number": 64,
+      "name": "Cine Retro",
+      "group": "Movies",
+      "logo": "https:\/\/images.pluto.tv\/channels\/5f8ed168f72fcd0007e56269\/colorLogoPNG_1751272859383.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-5f8ed168f72fcd0007e56269.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "cinenanar.fr@sd",
+      "number": 65,
+      "name": "Cine Nanar",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/YnUZd3W.png",
+      "urls": [
+        "https:\/\/zylo-cinenanar-rakuten.amagi.tv\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "cinewestern.fr@sd",
+      "number": 66,
+      "name": "Cine Western",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/tteOFkL.png",
+      "urls": [
+        "https:\/\/amg00711-zylo-amg00711c8-rakuten-uk-2686.playouts.now.amagi.tv\/playlist\/amg00711-zylofast-cinewestern-rakutenuk\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "sonyonehitsaction.fr@hd",
+      "number": 67,
+      "name": "Sony One Hits Action",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/pXsZEsR.png",
+      "urls": [
+        "https:\/\/5098a8b860504a3690fd2e7c0a18d68f.mediatailor.us-west-2.amazonaws.com\/v1\/master\/ba62fe743df0fe93366eba3a257d792884136c7f\/LINEAR-817-FR-SONYONEHITSACTION-LG_FR\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "sonyonehitscomedie.fr@hd",
+      "number": 68,
+      "name": "Sony One Hits Comedie",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/8sHuxxS.png",
+      "urls": [
+        "https:\/\/7aa9671895264ec9a384dfed1b992171.mediatailor.us-west-2.amazonaws.com\/v1\/master\/ba62fe743df0fe93366eba3a257d792884136c7f\/LINEAR-818-FR-SONYONEHITSCOMDIE-LG_FR\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "sonyonefavoris.fr@hd",
+      "number": 69,
+      "name": "Sony One Favoris",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/RO4AM4b.png",
+      "urls": [
+        "https:\/\/49d735318d6b4c30a24a7997ea594e1b.mediatailor.us-west-2.amazonaws.com\/v1\/master\/ba62fe743df0fe93366eba3a257d792884136c7f\/LINEAR-820-FR-SONYONEFAVORIS-LG_FR\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "emotionl.fr@sd",
+      "number": 70,
+      "name": "Emotion L",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/MP34aaj.png",
+      "urls": [
+        "https:\/\/rakutenaa-zylo-emotional-rakuten-r1zkm.amagi.tv\/playlist\/rakutenAA-zylo-emotional-rakuten\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "rakutentvtopmovies.es@uk",
+      "number": 71,
+      "name": "Rakuten Top Movies",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/Meew6eX.png",
+      "urls": [
+        "https:\/\/0145451975a64b35866170fd2e8fa486.mediatailor.eu-west-1.amazonaws.com\/v1\/master\/0547f18649bd788bec7b67b746e47670f558b6b2\/production-LiveChannel-5987\/master.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "rakutentvactionmovies.es@uk",
+      "number": 72,
+      "name": "Rakuten Action Movies",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/Meew6eX.png",
+      "urls": [
+        "https:\/\/54045f0c40fd442c8b06df076aaf1e85.mediatailor.eu-west-1.amazonaws.com\/v1\/master\/0547f18649bd788bec7b67b746e47670f558b6b2\/production-LiveChannel-6065\/master.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "rakutentvdramamovies.es@uk",
+      "number": 73,
+      "name": "Rakuten Drama Movies",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/Meew6eX.png",
+      "urls": [
+        "https:\/\/fee09fd665814f51b939b6d106cf5f66.mediatailor.eu-west-1.amazonaws.com\/v1\/master\/0547f18649bd788bec7b67b746e47670f558b6b2\/production-LiveChannel-6093\/master.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "rakutentvcomedymovies.es@uk",
+      "number": 74,
+      "name": "Rakuten Comedy Movies",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/Meew6eX.png",
+      "urls": [
+        "https:\/\/9be783d652cd4b099cf63e1dc134c4a3.mediatailor.eu-west-1.amazonaws.com\/v1\/master\/0547f18649bd788bec7b67b746e47670f558b6b2\/production-LiveChannel-6181\/master.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "moviesaction.sa@sd",
+      "number": 75,
+      "name": "Movies Action",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/NIVhISa.png",
+      "urls": [
+        "https:\/\/shd-amg-fast.edgenextcdn.net\/tx011\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "moviesthriller.sa@sd",
+      "number": 76,
+      "name": "Movies Thriller",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/JWihdcl.png",
+      "urls": [
+        "https:\/\/shd-amg-fast.edgenextcdn.net\/tx012\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "moviesphere.us@us",
+      "number": 77,
+      "name": "MovieSphere",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/h1ejU90.png",
+      "urls": [
+        "https:\/\/amg00353-lionsgatestudio-moviesphere-xumo-zh5u0.amagi.tv\/playlist.m3u8",
+        "https:\/\/moviesphereuk-samsunguk.amagi.tv\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "gravitasmovies.us@sd",
+      "number": 78,
+      "name": "Gravitas Movies",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/H2hD4vT.png",
+      "urls": [
+        "https:\/\/d6dg3ebeih71x.cloudfront.net\/Gravitas_Movies.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "runtime.us@sd",
+      "number": 79,
+      "name": "Runtime",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/2USCMvP.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-6086d3f420fc8500075f8dbf.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "classicmovieschannel.us@sd",
+      "number": 80,
+      "name": "Classic Movies",
+      "group": "Movies",
+      "logo": "https:\/\/i.imgur.com\/pQJxov2.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-561c5b0dada51f8004c4d855.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "plutotvactionmovies.us@ca",
+      "number": 81,
+      "name": "Pluto TV Action Movies",
+      "group": "Movies",
+      "logo": "https:\/\/images.pluto.tv\/channels\/62ea3c2e4823db00072788ed\/colorLogoPNG.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-62ea3c2e4823db00072788ed.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "plutotvwesterns.us@us",
+      "number": 82,
+      "name": "Pluto TV Westerns",
+      "group": "Movies",
+      "logo": "https:\/\/images.pluto.tv\/channels\/62bdacc96a3751000811842d\/colorLogoPNG.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-5b4e94282d4ec87bdcbb87cd.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "alarabiyaprograms.ae@sd",
+      "number": 83,
+      "name": "Al Arabiya Programs",
+      "group": "Documentary",
+      "logo": "https:\/\/i.imgur.com\/Hoc3cfO.png",
+      "urls": [
+        "https:\/\/live.alarabiya.net\/alarabiapublish\/aaprograms.smil\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "naturetime.ca@france",
+      "number": 84,
+      "name": "NatureTime France",
+      "group": "Documentary",
+      "logo": "https:\/\/i.imgur.com\/72JmyjM.png",
+      "urls": [
+        "https:\/\/bamusa-naturetime-emea-fra-rakuten.amagi.tv\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "plutotvhistoire.de@fr",
+      "number": 85,
+      "name": "Pluto TV Histoire",
+      "group": "Documentary",
+      "logo": "https:\/\/images.pluto.tv\/channels\/611e771e2f5f180007002224\/colorLogoPNG.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-611e771e2f5f180007002224.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "plutotvanimaux.de@fr",
+      "number": 86,
+      "name": "Pluto TV Animaux",
+      "group": "Documentary",
+      "logo": "https:\/\/images.pluto.tv\/channels\/60925a44f0350600075a1fdc\/colorLogoPNG.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-60925a44f0350600075a1fdc.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "plutotvaventure.de@fr",
+      "number": 87,
+      "name": "Pluto TV Aventure",
+      "group": "Documentary",
+      "logo": "https:\/\/images.pluto.tv\/channels\/611e7811eb9daf000764cbfd\/colorLogoPNG.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-611e7811eb9daf000764cbfd.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "bbcearth.uk@poland",
+      "number": 88,
+      "name": "BBC Earth",
+      "group": "Documentary",
+      "logo": "https:\/\/i.imgur.com\/nGSsUd4.png",
+      "urls": [
+        "http:\/\/57.128.231.171:8080\/307\/index.m3u8",
+        "https:\/\/amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv\/BBCStudios-BBCEarthA-hls\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "documentaryplus.us@us",
+      "number": 89,
+      "name": "Documentary+",
+      "group": "Documentary",
+      "logo": "https:\/\/i.imgur.com\/x57klfS.png",
+      "urls": [
+        "https:\/\/ef79b15c8c7c46c7a9de9d33001dbd07.mediatailor.us-west-2.amazonaws.com\/v1\/master\/ba62fe743df0fe93366eba3a257d792884136c7f\/LINEAR-859-DOCUMENTARYPLUS-DOCUMENTARYPLUS\/mt\/documentaryplus\/859\/hls\/master\/playlist.m3u8",
+        "https:\/\/1d153317c8db4250b3789601274e2402.mediatailor.us-west-2.amazonaws.com\/v1\/master\/ba62fe743df0fe93366eba3a257d792884136c7f\/LINEAR-887-DOCUMENTARYINTERNATIONAL-DOCUMENTARYPLUS\/mt\/documentaryplus\/887\/hls\/master\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "docubaytv.in@sd",
+      "number": 90,
+      "name": "DocuBay",
+      "group": "Documentary",
+      "logo": "https:\/\/i.imgur.com\/OGyeLLR.png",
+      "urls": [
+        "https:\/\/cc-mgr91yrk4pehy.akamaized.net\/v1\/master\/3722c60a815c199d9c0ef36c5b73da68a62b09d1\/cc-mgr91yrk4pehy\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "historyhit.uk@sd",
+      "number": 91,
+      "name": "History Hit",
+      "group": "Documentary",
+      "logo": "https:\/\/i.imgur.com\/ulHoqlP.png",
+      "urls": [
+        "https:\/\/lds-timeline-rakuten.amagi.tv\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "autentichistory.de@sd",
+      "number": 92,
+      "name": "Autentic History",
+      "group": "Documentary",
+      "logo": "https:\/\/d3b6luslimvglo.cloudfront.net\/images\/79\/rlaxximages\/channels-rescaled\/icon-white\/autentichistory_white.png",
+      "urls": [
+        "https:\/\/9e754fa707344ccca6d84955c8fcaf36.mediatailor.us-east-1.amazonaws.com\/v1\/master\/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8\/RlaxxTV-eu_AutenticHistory\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "terramaterwild.de@english",
+      "number": 93,
+      "name": "Terra Mater WILD",
+      "group": "Documentary",
+      "logo": "https:\/\/i.imgur.com\/EbMK3Ph.png",
+      "urls": [
+        "https:\/\/amg01775-amg01775c1-amgplt0343.playout.now3.amagi.tv\/playlist\/amg01775-amg01775c1-amgplt0343\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "inwild.nl@sd",
+      "number": 94,
+      "name": "INWILD",
+      "group": "Documentary",
+      "logo": "https:\/\/cdn.uc.assets.prezly.com\/92770c71-9d6f-400f-8311-38e9cfec52c2\/InWild_landscape-green.png",
+      "urls": [
+        "https:\/\/amg00861-terninternation-inwild-samsunguk-w5wic.amagi.tv\/playlist\/amg00861-terninternation-inwild-samsunguk\/playlist.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "wildearth.za@sd",
+      "number": 95,
+      "name": "WildEarth",
+      "group": "Documentary",
+      "logo": "https:\/\/i.imgur.com\/Vhv5gjN.png",
+      "urls": [
+        "https:\/\/dqga3jatxofgx.cloudfront.net\/WildEarth.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "cgtndocumentary.cn@sd",
+      "number": 96,
+      "name": "CGTN Documentary",
+      "group": "Documentary",
+      "logo": "https:\/\/i.imgur.com\/JHv0WxM.png",
+      "urls": [
+        "https:\/\/amg00405-rakutentv-cgtndocumentary-rakuten-0ql8j.amagi.tv\/master.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "plutotvscience.us@us",
+      "number": 97,
+      "name": "Pluto TV Science",
+      "group": "Documentary",
+      "logo": "https:\/\/i.imgur.com\/uhunRoU.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-563a970aa1a1f7fe7c9daad7.m3u8"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "plutotvhistory.us@us",
+      "number": 98,
+      "name": "Pluto TV History",
+      "group": "Documentary",
+      "logo": "https:\/\/i.imgur.com\/XkQD5kM.png",
+      "urls": [
+        "https:\/\/jmp2.uk\/plu-5a4d35dfa5c02e717a234f86.m3u8"
+      ],
+      "enabled": true
+    }
+  ]
+}

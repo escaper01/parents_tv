@@ -1,0 +1,15 @@
+# Build output (the ready-to-install APK lives in apk/ and IS committed)
+.gradle/
+.kotlin/
+build/
+app/build/
+captures/
+
+# Machine-specific
+local.properties
+.idea/
+*.iml
+
+# Never commit signing keys
+*.jks
+*.keystore

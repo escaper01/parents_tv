@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parents TV</title>
+<style>
+  :root {
+    --bg: #f4f6f9; --card: #ffffff; --text: #18202b; --muted: #5f6b7a; --line: #dfe4ea;
+    --accent: #2f6feb; --accent-soft: #e6eefe; --danger: #c62828; --ok: #2e7d32;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0f1318; --card: #181e26; --text: #e8edf3; --muted: #9aa6b4; --line: #2a333e; --accent-soft: #1c2a44; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); }
+  header { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
+  .bar { max-width: 1040px; margin: 0 auto; padding: 12px 16px 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+  h1 { font-size: 19px; margin: 0; }
+  .tabs { max-width: 1040px; margin: 0 auto; padding: 0 16px; display: flex; gap: 4px; }
+  .tab { border: 0; background: none; color: var(--muted); padding: 12px 14px 10px; border-bottom: 3px solid transparent; border-radius: 0; font-weight: 600; }
+  .tab[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+  main { padding: 16px 16px 64px; max-width: 1040px; margin: 0 auto; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px; margin-bottom: 14px; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  button, .btn { font: inherit; border: 1px solid var(--line); background: var(--card); color: var(--text); border-radius: 7px; padding: 7px 12px; cursor: pointer; text-decoration: none; display: inline-block; }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button.danger { color: var(--danger); }
+  button:disabled { opacity: .45; cursor: default; }
+  input, textarea, select { font: inherit; width: 100%; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--text); }
+  textarea { min-height: 84px; font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+  label { display: block; font-size: 13px; color: var(--muted); margin: 10px 0 4px; }
+  .muted { color: var(--muted); font-size: 13px; }
+  .search { position: relative; margin-bottom: 12px; }
+  .search input { padding-left: 36px; font-size: 16px; }
+  .search::before { content: "🔍"; position: absolute; left: 11px; top: 50%; transform: translateY(-50%); font-size: 15px; opacity: .7; }
+
+  /* Channels tab */
+  .chips { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 8px; scrollbar-width: thin; }
+  .chip { flex: none; border-radius: 999px; padding: 6px 13px; font-size: 14px; }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .chip .count { opacity: .7; margin-left: 4px; font-size: 12px; }
+  .group-title { font-size: 15px; margin: 18px 0 8px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .tile { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 8px; text-align: center; border-radius: 10px; background: var(--card); border: 2px solid var(--line); cursor: pointer; }
+  .star { position: absolute; top: 4px; right: 4px; border: 0; background: none; padding: 4px 6px; font-size: 18px; line-height: 1; color: var(--muted); }
+  .star.on { color: #f5b301; }
+  .star-btn.on { color: #f5b301; }
+  #favCurrent.on { border-color: #f5b301; }
+  .tile:hover { border-color: var(--accent); }
+  .tile.on { border-color: var(--ok); background: var(--accent-soft); }
+  .tile .logo { width: 64px; height: 44px; object-fit: contain; }
+  .tile .initials { width: 64px; height: 44px; display: grid; place-items: center; border-radius: 6px; background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+  .tile .tname { font-weight: 600; font-size: 14px; line-height: 1.25; overflow-wrap: anywhere; }
+  .tile .tnum { font-size: 12px; color: var(--muted); }
+  .badge { font-size: 11px; color: #fff; background: var(--ok); border-radius: 4px; padding: 1px 6px; }
+
+  /* Manage tab */
+  .channel { display: grid; grid-template-columns: 44px 1fr auto; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line); }
+  .channel:first-child { border-top: 0; }
+  .num { font-weight: 700; font-size: 18px; color: var(--accent); text-align: center; }
+  .name { font-weight: 600; overflow-wrap: anywhere; }
+  .off { opacity: .5; }
+  .actions { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; }
+  .actions button { padding: 5px 9px; }
+  .test-ok { color: var(--ok); } .test-bad { color: var(--danger); }
+  .toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: #222; color: #fff; padding: 10px 16px; border-radius: 8px; display: none; max-width: calc(100% - 32px); z-index: 10; }
+  #login { max-width: 360px; margin: 12vh auto; }
+  @media (max-width: 560px) {
+    .channel { grid-template-columns: 36px 1fr; }
+    .actions { grid-column: 1 / -1; justify-content: flex-start; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); }
+  }
+</style>
+</head>
+<body>
+
+<div id="login" class="card" hidden>
+  <h1>Parents TV</h1>
+  <p class="muted">Enter the PIN shown on the TV (open the channel list with <b>OK</b>).</p>
+  <form id="loginForm" class="row">
+    <input id="pin" inputmode="numeric" maxlength="8" placeholder="PIN" autocomplete="off" style="flex:1">
+    <button class="primary">Open</button>
+  </form>
+  <p id="loginError" class="test-bad"></p>
+</div>
+
+<div id="app" hidden>
+  <header>
+    <div class="bar">
+      <h1>📺 Parents TV</h1>
+      <div class="row">
+        <span id="nowPlaying" class="muted"></span>
+        <button id="favCurrent" hidden onclick="toggleFavorite(current)"></button>
+        <button onclick="logout()">Lock</button>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-watch" aria-selected="true" onclick="showTab('watch')">Channels</button>
+      <button class="tab" role="tab" id="tab-manage" aria-selected="false" onclick="showTab('manage')">Manage</button>
+    </nav>
+  </header>
+
+  <!-- Channels: browse, search and switch the TV -->
+  <main id="watch" role="tabpanel">
+    <div class="search"><input id="watchSearch" type="search" placeholder="Search channels…" oninput="renderWatch()"></div>
+    <div id="chips" class="chips" role="group" aria-label="Categories"></div>
+    <div id="watchList"></div>
+    <p id="watchEmpty" class="muted" hidden>No channel matches.</p>
+  </main>
+
+  <!-- Manage: add, edit, delete, reorder, import / export -->
+  <main id="manage" role="tabpanel" hidden>
+    <div class="row" style="margin-bottom:12px">
+      <button class="primary" onclick="openEditor()">+ Add channel</button>
+    </div>
+
+    <div id="editor" class="card" hidden>
+      <h2 id="editorTitle" style="margin:0 0 4px;font-size:17px">Add channel</h2>
+      <form id="editForm">
+        <label for="fName">Name</label>
+        <input id="fName" required>
+        <label for="fGroup">Category</label>
+        <input id="fGroup" list="groupList" placeholder="Morocco, Arabic News, Movies…">
+        <datalist id="groupList"></datalist>
+        <label for="fLogo">Logo URL (optional)</label>
+        <input id="fLogo">
+        <label for="fUrls">Stream links, one per line (the first is used, the rest are backups)</label>
+        <textarea id="fUrls" required></textarea>
+        <div id="testResult" class="muted"></div>
+        <label><input id="fEnabled" type="checkbox" style="width:auto" checked> Show on TV</label>
+        <div class="row" style="margin-top:12px">
+          <button class="primary" type="submit">Save</button>
+          <button type="button" onclick="testLinks()">Test links</button>
+          <button type="button" onclick="closeEditor()">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <div class="search" style="margin-bottom:6px"><input id="manageSearch" type="search" placeholder="Filter by name or category…" oninput="renderManage()"></div>
+      <div id="list"></div>
+      <p id="empty" class="muted" hidden>No channels.</p>
+    </div>
+
+    <div class="card">
+      <h2 style="margin:0 0 6px;font-size:17px">Import / export</h2>
+      <p class="muted">Import a <b>.json</b> file (this app's format) or an <b>.m3u</b> playlist. Channels that already exist are merged, never duplicated.</p>
+      <div class="row">
+        <input type="file" id="importFile" accept=".json,.m3u,.m3u8,.txt" style="flex:1;min-width:200px">
+        <button onclick="importFile()">Import file</button>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <input id="importUrl" placeholder="https://…/playlist.m3u" style="flex:1;min-width:200px">
+        <button onclick="importUrl()">Import from link</button>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <a id="exportLink" class="btn" href="#">Download backup (.json)</a>
+        <button class="danger" onclick="resetDefaults()">Reset to default channels</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div id="toast" class="toast" role="status"></div>
+
+<script>
+let pin = localStorage.getItem('ptv-pin') || '';
+let channels = [];
+let current = null;
+let favorites = [];
+const FAV = '★ Favorites';
+let editingId = null;
+let activeGroup = localStorage.getItem('ptv-group') || 'All';
+
+const $ = id => document.getElementById(id);
+
+function toast(msg, ms = 2600) {
+  const t = $('toast'); t.textContent = msg; t.style.display = 'block';
+  clearTimeout(toast.timer); toast.timer = setTimeout(() => t.style.display = 'none', ms);
+}
+
+async function api(path, opts = {}) {
+  const res = await fetch('/api/' + path, { ...opts, headers: { 'X-Pin': pin, ...(opts.headers || {}) } });
+  const data = await res.json().catch(() => ({}));
+  if (res.status === 401) { logout(); throw new Error('Wrong PIN'); }
+  if (!res.ok) throw new Error(data.error || ('HTTP ' + res.status));
+  return data;
+}
+const post = (path, body) => api(path, { method: 'POST', body: typeof body === 'string' ? body : JSON.stringify(body) });
+
+function showLogin(err) {
+  $('app').hidden = true; $('login').hidden = false; $('loginError').textContent = err || ''; $('pin').focus();
+}
+function logout() { pin = ''; localStorage.removeItem('ptv-pin'); showLogin(); }
+
+$('loginForm').onsubmit = async e => {
+  e.preventDefault();
+  pin = $('pin').value.trim();
+  try { await load(); localStorage.setItem('ptv-pin', pin); }
+  catch (err) { showLogin(err.message); }
+};
+
+function showTab(name) {
+  for (const t of ['watch', 'manage']) {
+    $(t).hidden = t !== name;
+    $('tab-' + t).setAttribute('aria-selected', String(t === name));
+  }
+  localStorage.setItem('ptv-tab', name);
+}
+
+async function load() {
+  const data = await api('channels');
+  channels = data.channels; current = data.current; favorites = data.favorites || [];
+  $('login').hidden = true; $('app').hidden = false;
+  $('exportLink').href = '/api/export?pin=' + encodeURIComponent(pin);
+  render();
+}
+
+function render() {
+  const cur = channels.find(c => c.id === current);
+  $('nowPlaying').textContent = cur ? '▶ ' + cur.name : '';
+  // One tap to save whatever is on the TV right now.
+  const fc = $('favCurrent');
+  fc.hidden = !cur;
+  if (cur) {
+    const on = favorites.includes(cur.id);
+    fc.textContent = on ? '★ Favorite' : '☆ Add to favorites';
+    fc.classList.toggle('on', on);
+  }
+  $('groupList').innerHTML = groups().map(g => `<option value="${esc(g)}">`).join('');
+  renderWatch();
+  renderManage();
+}
+
+function esc(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
+// Accent- and case-insensitive matching, so "cine" finds "Ciné".
+function norm(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim(); }
+function matches(c, q) { return !q || norm(c.name).includes(q) || norm(c.group).includes(q); }
+
+// Categories in TV order (Morocco first because its channels come first).
+function groups() {
+  const seen = [];
+  for (const c of channels) { const g = c.group || 'Other'; if (!seen.includes(g)) seen.push(g); }
+  return seen;
+}
+
+// TV numbers count only channels shown on the TV.
+function tvNumbers() {
+  const map = {}; let n = 0;
+  for (const c of channels) if (c.enabled) map[c.id] = ++n;
+  return map;
+}
+
+// ---- Channels tab ------------------------------------------------------------------------
+
+function renderWatch() {
+  const q = norm($('watchSearch').value);
+  const visible = channels.filter(c => c.enabled && matches(c, q));
+  const favs = favorites.map(id => visible.find(c => c.id === id)).filter(Boolean); // in the order added
+  const all = groups().filter(g => channels.some(c => c.enabled && (c.group || 'Other') === g));
+  if (activeGroup !== 'All' && activeGroup !== FAV && !all.includes(activeGroup)) activeGroup = 'All';
+
+  $('chips').innerHTML = ['All', FAV, ...all].map(g => {
+    const n = g === 'All' ? visible.length : g === FAV ? favs.length : visible.filter(c => (c.group || 'Other') === g).length;
+    return `<button class="chip" aria-pressed="${g === activeGroup}" onclick="pickGroup('${esc(g)}')">${esc(g)}<span class="count">${n}</span></button>`;
+  }).join('');
+
+  const nums = tvNumbers();
+  let html = '';
+  // Favorites always lead the "All" view, and are the whole view on their own chip.
+  if ((activeGroup === 'All' || activeGroup === FAV) && favs.length) {
+    html += `<h2 class="group-title">${esc(FAV)}</h2><div class="grid">` + favs.map(c => tile(c, nums[c.id])).join('') + '</div>';
+  }
+  if (activeGroup === FAV && !favs.length) {
+    html = '<p class="muted">No favorites yet. Tap ☆ on a channel, or "Add to favorites" at the top while it plays on the TV.</p>';
+  }
+  const shownGroups = activeGroup === 'All' ? all : activeGroup === FAV ? [] : [activeGroup];
+  for (const g of shownGroups) {
+    const items = visible.filter(c => (c.group || 'Other') === g);
+    if (!items.length) continue;
+    html += `<h2 class="group-title">${esc(g)}</h2><div class="grid">` + items.map(c => tile(c, nums[c.id])).join('') + '</div>';
+  }
+  $('watchList').innerHTML = html;
+  $('watchEmpty').hidden = html !== '';
+}
+
+function tile(c, num) {
+  const initials = c.name.replace(/[^\p{L}\p{N} ]/gu, '').split(' ').filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+  const logo = c.logo
+    ? `<img class="logo" src="${esc(c.logo)}" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'initials',textContent:'${esc(initials)}'}))">`
+    : `<div class="initials">${esc(initials)}</div>`;
+  const on = c.id === current;
+  const fav = favorites.includes(c.id);
+  return `<div class="tile ${on ? 'on' : ''}" role="button" tabindex="0" onclick="playOnTv('${esc(c.id)}')" onkeydown="if(event.key==='Enter')playOnTv('${esc(c.id)}')">
+    <button class="star ${fav ? 'on' : ''}" title="${fav ? 'Remove from favorites' : 'Add to favorites'}" aria-label="${fav ? 'Remove from favorites' : 'Add to favorites'}"
+      onclick="event.stopPropagation(); toggleFavorite('${esc(c.id)}')">${fav ? '★' : '☆'}</button>
+    ${logo}<div class="tname">${esc(c.name)}</div>
+    <div class="tnum">${on ? '<span class="badge">ON TV</span>' : 'Channel ' + num}</div></div>`;
+}
+
+async function toggleFavorite(id) {
+  if (!id) return;
+  const on = favorites.includes(id);
+  try {
+    const r = await api('favorites/' + encodeURIComponent(id), { method: on ? 'DELETE' : 'POST' });
+    favorites = r.favorites;
+    render();
+    const name = channels.find(c => c.id === id)?.name || '';
+    toast(on ? `Removed ${name} from favorites` : `★ ${name} added to favorites`);
+  } catch (e) { toast(e.message); }
+}
+
+function pickGroup(g) { activeGroup = g; localStorage.setItem('ptv-group', g); renderWatch(); window.scrollTo({ top: 0 }); }
+
+async function playOnTv(id) {
+  try {
+    await post('play/' + encodeURIComponent(id), {});
+    current = id; render();
+    toast('Now on TV: ' + (channels.find(c => c.id === id)?.name || ''));
+  } catch (e) { toast(e.message); }
+}
+
+// ---- Manage tab --------------------------------------------------------------------------
+
+function renderManage() {
+  const q = norm($('manageSearch').value);
+  const nums = tvNumbers();
+  $('empty').hidden = channels.length > 0;
+  $('list').innerHTML = channels.map((c, i) => !matches(c, q) ? '' : `
+    <div class="channel ${c.enabled ? '' : 'off'}">
+      <div class="num">${c.enabled ? nums[c.id] : '–'}</div>
+      <div>
+        <div class="name">${esc(c.name)}${c.id === current ? ' <span class="badge">ON TV</span>' : ''}</div>
+        <div class="muted">${esc(c.group || '')}${c.group ? ' · ' : ''}${c.urls.length} link${c.urls.length > 1 ? 's' : ''}${c.enabled ? '' : ' · hidden'}</div>
+      </div>
+      <div class="actions">
+        <button title="Move up" onclick="move(${i},-1)" ${i === 0 ? 'disabled' : ''}>▲</button>
+        <button title="Move down" onclick="move(${i},1)" ${i === channels.length - 1 ? 'disabled' : ''}>▼</button>
+        <button class="star-btn ${favorites.includes(c.id) ? 'on' : ''}" title="Favorite" onclick="toggleFavorite('${esc(c.id)}')">${favorites.includes(c.id) ? '★' : '☆'}</button>
+        <button onclick="playOnTv('${esc(c.id)}')" ${c.enabled ? '' : 'disabled'}>Play</button>
+        <button onclick="openEditor('${esc(c.id)}')">Edit</button>
+        <button class="danger" onclick="removeChannel('${esc(c.id)}')">Delete</button>
+      </div>
+    </div>`).join('');
+}
+
+async function move(i, d) {
+  const ids = channels.map(c => c.id);
+  [ids[i], ids[i + d]] = [ids[i + d], ids[i]];
+  await post('reorder', { ids }); await load();
+}
+
+async function removeChannel(id) {
+  const c = channels.find(x => x.id === id);
+  if (!confirm(`Delete "${c.name}"?`)) return;
+  await api('channels/' + encodeURIComponent(id), { method: 'DELETE' });
+  toast('Deleted'); await load();
+}
+
+function openEditor(id) {
+  editingId = id || null;
+  const c = channels.find(x => x.id === id) || { name: '', group: '', logo: '', urls: [], enabled: true };
+  $('editorTitle').textContent = id ? 'Edit channel' : 'Add channel';
+  $('fName').value = c.name; $('fGroup').value = c.group; $('fLogo').value = c.logo;
+  $('fUrls').value = c.urls.join('\n'); $('fEnabled').checked = c.enabled; $('testResult').textContent = '';
+  $('editor').hidden = false; $('editor').scrollIntoView({ behavior: 'smooth' }); $('fName').focus();
+}
+function closeEditor() { $('editor').hidden = true; editingId = null; }
+
+$('editForm').onsubmit = async e => {
+  e.preventDefault();
+  const body = {
+    name: $('fName').value.trim(), group: $('fGroup').value.trim(), logo: $('fLogo').value.trim(),
+    urls: $('fUrls').value.split('\n').map(s => s.trim()).filter(Boolean), enabled: $('fEnabled').checked,
+  };
+  if (editingId) body.id = editingId;
+  else {
+    // New channels go at the end of their category rather than the end of the whole list.
+    const last = channels.map(c => c.group).lastIndexOf(body.group);
+    if (body.group && last >= 0) body.position = last + 1;
+  }
+  try { await post('channels', body); toast('Saved'); closeEditor(); await load(); }
+  catch (err) { toast(err.message); }
+};
+
+async function testLinks() {
+  const urls = $('fUrls').value.split('\n').map(s => s.trim()).filter(Boolean);
+  if (!urls.length) return;
+  $('testResult').textContent = 'Testing…';
+  const lines = [];
+  for (const [i, url] of urls.entries()) {
+    const r = await post('test', { url }).catch(e => ({ ok: false, error: e.message }));
+    lines.push(`<span class="${r.ok ? 'test-ok' : 'test-bad'}">Link ${i + 1}: ${r.ok ? 'works' : 'not working'}${r.status ? ' (HTTP ' + r.status + ')' : ''}${r.error ? ' – ' + esc(r.error) : ''}</span>`);
+    $('testResult').innerHTML = lines.join('<br>');
+  }
+}
+
+function summary(r) { return `Added ${r.added}, merged ${r.merged}, already there ${r.unchanged}`; }
+
+async function importFile() {
+  const f = $('importFile').files[0];
+  if (!f) return toast('Choose a file first');
+  try { const r = await post('import', await f.text()); toast(summary(r), 4000); await load(); }
+  catch (e) { toast('Import failed: ' + e.message, 4000); }
+}
+
+async function importUrl() {
+  const url = $('importUrl').value.trim();
+  if (!url) return;
+  try { const r = await post('import-url', { url }); toast(summary(r), 4000); await load(); }
+  catch (e) { toast('Import failed: ' + e.message, 4000); }
+}
+
+async function resetDefaults() {
+  if (!confirm('Replace all channels with the default list?')) return;
+  await post('reset', {}); toast('Default channels restored'); await load();
+}
+
+showTab(localStorage.getItem('ptv-tab') || 'watch');
+if (pin) load().catch(() => showLogin()); else showLogin();
+// Keep "ON TV" in sync with the remote, but never while editing.
+setInterval(() => { if (pin && !$('app').hidden && $('editor').hidden) load().catch(() => {}); }, 15000);
+</script>
+</body>
+</html>
